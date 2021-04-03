@@ -1,0 +1,20 @@
+
+(function (factory) {
+  if (typeof module === 'object' && module.exports) {
+    module.exports = factory();
+  } else if (typeof define === 'function' && define.amd) {
+    define(factory);
+  }
+})(function () {
+  function compiled(helpers, context, guard, iter, helper) {
+    var __escape = helpers.__escape;
+    var value = context;
+    return "<div class=\"row\">\n\t<div class=\"col-lg-9\">\n\t\t<div class=\"panel panel-default\">\n\t\t\t<div class=\"panel-heading\">GitHub Embed</div>\n\t\t\t<div class=\"panel-body\">\n\t\t\t\t<form class=\"form github-embed-settings\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<label for=\"defaultRepo\">Default Repository</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"defaultRepo\" name=\"defaultRepo\" placeholder=\"NodeBB/NodeBB\" />\n\t\t\t\t\t\t\t\t<span class=\"help-block\">Optional. Allows you to reference issues simply by providing the issue number (e.g. gh#1234). This field expects the repository owner and repository name, separated by a forward slash (/).</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<label for=\"cacheHours\">Number of hours to cache issue data</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"cacheHours\" name=\"cacheHours\" placeholder=\"6\" />\n\t\t\t\t\t\t\t\t<span class=\"help-block\">To reduce the number of calls to GitHub, this plugin will remember issue data for a specified number of hours. (Default: 6)</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<label for=\"clientId\">Client ID/Secret Pair</label>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-xs-5\">\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"clientId\" name=\"clientId\" placeholder=\"Client ID\" />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-xs-7\">\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"clientSecret\" name=\"clientSecret\" placeholder=\"Client Secret\" />\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<span class=\"help-block\">Optional. Without a client ID/secret pair, requests are rate-limited to one request per second.</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<label for=\"personalAccessToken\">Personal Access Token</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"personalAccessToken\" name=\"personalAccessToken\" />\n\t\t\t\t\t\t\t\t<p class=\"help-block\">\n\t\t\t\t\t\t\t\t\tOptional. A <a href=\"https://github.com/blog/1509-personal-api-tokens\">Personal Access Token</a> can also be\n\t\t\t\t\t\t\t\t\tgenerated in order to authenticate your requests, raise your API call limit, and access private repositories\n\t\t\t\t\t\t\t\t\t(if configured to do so).\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"col-lg-3\">\n\t\t<div class=\"panel panel-default\">\n\t\t\t<div class=\"panel-heading\">Control Panel</div>\n\t\t\t<div class=\"panel-body\">\n\t\t\t\t<button class=\"btn btn-primary\" id=\"save\">Save Settings</button>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<script type=\"text/javascript\">\n\trequire(['settings'], function(Settings) {\n\t\tSettings.load('github-embed', $('.github-embed-settings'));\n\n\t\t$('#save').on('click', function() {\n\t\t\tSettings.save('github-embed', $('.github-embed-settings'), function() {\n\t\t\t\tapp.alert({\n\t\t\t\t\talert_id: 'github-embed',\n\t\t\t\t\ttype: 'info',\n\t\t\t\t\ttitle: 'Settings Changed',\n\t\t\t\t\tmessage: 'Please restart your NodeBB to apply these changes',\n\t\t\t\t\ttimeout: 5000,\n\t\t\t\t\tclickfn: function() {\n\t\t\t\t\t\tsocket.emit('admin.restart');\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t});\n\t\t});\n\t});\n</script>";
+  }
+
+  compiled.blocks = {
+    
+  };
+
+  return compiled;
+})
